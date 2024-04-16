@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<h1>List Of Products</h1>
+<ul>
+    {% for product in list_product %}
+    <li><strong>Product :{{ product.product_name }}</strong> <br> Category:{{ product.category_name }}<br>
+    <button  name="product_id" >Buy</button>
+    <button><a  href="{% url 'update_product' product.id %}" >Edit</a></button>
+        <button>
+            <a href="{% url 'delete_product' product.id %}" onclick = "return confirm('Are You Sure?')">Delete</a>
+        </button>
+    <br><br>
+    </li>
+
+    {% endfor %}
+</ul>
+</body>
+</html>

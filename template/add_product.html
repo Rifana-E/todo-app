@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add_product</title>
+</head>
+<body>
+<h3>Add Product</h3>
+    <form  method="POST">
+        {% csrf_token %}
+        <label >Category </label>
+        <select name="category" id="category">
+            <option >Choose</option>
+            {% for category in categories %}
+            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+            {% endfor %}
+
+        </select><br><br>
+
+        <label>Product Name</label>
+              <input type="text" name="product_name"  required>
+
+        <button type="submit"> Submit </button>
+    </form>
+
+<li><a href="{% url 'list_product' %}">List Product</a></li>
+
+</body>
+</html>

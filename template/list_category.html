@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+</head>
+<body>
+    <h1>Categories and Products</h1>
+    <ul>
+        {% for category in categories %}
+            <br><li>{{ category.category_name }} &nbsp;
+        <a  href="{% url 'delete_category' category.id %}" onclick = "return confirm('Are You Sure?')">Delete</a></li>
+            {% if category.product_set.all %}
+            <ul>
+                {% for product in category.product_set.all %}
+
+                    <li>{{ product.product_name }}</li>
+
+                {% endfor %}
+            </ul>
+            {% else %}
+                <p>No products in this category.</p>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>

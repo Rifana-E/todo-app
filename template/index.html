@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping</title>
+</head>
+<body>
+    <h1><strong>Shopping  APP</strong> </h1>
+
+    <h3>Add Category</h3>
+    <form  method="POST">
+        {% csrf_token %}
+        <label>Category</label>
+              <input type="text" name="category_name"  required>
+        <button type="submit"> Submit </button>
+    </form>
+
+    
+    <ul>
+        <li><a href="{% url 'add_product' %}">Add Product</a></li>
+        <li><a href="{% url 'list_category' %}">List Category</a></li>
+        <li><a href="{% url 'list_product' %}">List Product</a></li>
+        <li><a href="{% url 'shopped_items' %}">Shopped Items</a></li>
+    </ul>
+
+</body>
+</html>
