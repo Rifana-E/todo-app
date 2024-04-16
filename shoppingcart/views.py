@@ -82,3 +82,6 @@ def delete_category(request, pid):
     category.is_deleted = True
     category.save()
     return redirect('list_category')
+
+def hello_world(request):
+    return render(request, 'hello.html')
